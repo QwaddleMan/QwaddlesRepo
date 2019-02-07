@@ -1,0 +1,23 @@
+{
+  "name": "web-server",
+  "version": "1.0.0",
+  "description": "using node.js and express to make a website.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "Javascript-Fun"
+  },
+  "keywords": [
+    "nodejs",
+    "javascript",
+    "web"
+  ],
+  "author": "Jason Bowerman",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
