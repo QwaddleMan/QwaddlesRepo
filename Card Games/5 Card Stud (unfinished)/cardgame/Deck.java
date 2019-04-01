@@ -22,13 +22,9 @@ public class Deck {
 			for(int j = 2; j < 15; j++)
 			{
 				val = "";
-				if(j < 10)
+				if(j <= 10)
 				{
-					val += ((char)(j+48));
-				}
-				else if(j == 10)
-				{
-					val = "10";
+					val = Integer.toString(j);
 				}
 				else
 				{
@@ -88,6 +84,7 @@ public class Deck {
 		}
 	}
 	
+	//no longer used
 	public Card[] deal(int amt)
 	{
 		System.out.println("\ndealing...");
@@ -106,6 +103,27 @@ public class Deck {
 		}
 		//System.out.println("Cards left in deck = " + deck.size());
 		return hand;
+	}
+	
+	public Hand dealHand(int amt)
+	{
+		Hand hand = new Hand();
+		System.out.println("\ndealing...");
+		for(int i = 0; i < amt; i++)
+		{
+			if(deck.empty())
+			{
+				System.out.println("no more cards...");
+				break;
+			}
+			else
+			{
+				hand.add(deck.pop());
+			}
+		}
+		
+		return hand;
+		
 	}
 	
 	

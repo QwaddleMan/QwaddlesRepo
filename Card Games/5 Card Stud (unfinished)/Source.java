@@ -1,4 +1,4 @@
-package cardgame;
+import cardgame.*;
 
 public class Source {
 
@@ -7,14 +7,14 @@ public class Source {
 		Deck deck = new Deck();
 		deck.shuffle();
 		deck.showCards();
-		Card[] hand = deck.deal(5);
 		
-		System.out.println("\nYour hand: ");
-		for(int i = 0; i < hand.length; i++)
-		{
-			if(hand[i] != null)
-				hand[i].display();
-		}
+		
+		Hand myhand = deck.dealHand(5);
+		Hand computer = deck.dealHand(5);
+		
+		myhand.showHand();
+		
+		
 	}
 
 }
