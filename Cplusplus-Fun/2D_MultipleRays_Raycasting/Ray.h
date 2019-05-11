@@ -3,6 +3,7 @@
 #include "Line.h"
 #include "Boundry.h"
 #include "util.h"
+#include <vector>
 
 
 using namespace sf;
@@ -17,11 +18,14 @@ public:
 	void update();
 	void lookAt(float x, float y);
 	void setPosition(float x, float y);
+	Line getShortest();
 public:
 	Vector2f pos;
 	Vector2f dir;
+	std::vector<Line> lines;
 private:
 	Line * rayLine;
+	
 
 };
 
@@ -57,6 +61,18 @@ void Ray::lookAt(float x, float y)
 	dir.y = y-pos.y;
 	dir = normalize(dir);
 
+}
+
+Line Ray::getShortest()
+{
+	Line min = lines[0];
+
+	for(unsigned long i = 1; i < lines.size(); i++)
+	{
+		if(lines[i].length() < min.length())
+			min = lines[i];
+	}
+	return min;
 }
 
 Line Ray::getRayLine()

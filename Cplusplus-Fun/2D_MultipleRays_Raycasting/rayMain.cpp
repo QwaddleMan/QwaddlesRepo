@@ -5,11 +5,25 @@
 #include "Ray.h"
 #include <iostream>
 #include "util.h"
+#include <vector>
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(400,400), "Raycasting");
-    Boundry wall(300,100,300,300);
+    sf::RenderWindow window(sf::VideoMode(800,800), "Raycasting");
+
+    std::vector<Boundry> walls;
+
+    walls.push_back(Boundry(370,100,300,300));
+    walls.push_back(Boundry(100,300, 300,300));
+    walls.push_back(Boundry(100,100,100,300));
+    walls.push_back(Boundry(100,100,300, 30));
+
+    
+    walls.push_back(Boundry(0,0,0,400));
+    walls.push_back(Boundry(0,0,400,0));
+    walls.push_back(Boundry(400,0,400,400));
+    walls.push_back(Boundry(400,400,0,400));
+
     
     Particle particle(200,200);
     std::cout<<particle.rays.size()<<std::endl;
@@ -23,14 +37,18 @@ int main()
                 window.close();
         }
 
-        particle.setPosition(sf::Mouse::getPosition().x, sf::Mouse::getPosition().y);
+        particle.setPosition(sf::Mouse::getPosition().x - 770, sf::Mouse::getPosition().y - 370);
         particle.update();
-        particle.look(wall);
+        particle.look(walls);
 
         window.clear();
 
         particle.show(window);
-        wall.draw(window);
+
+        for(unsigned long i = 0; i < walls.size(); i++)
+        {
+            walls[i].draw(window);
+        }
 
         window.display();
     }

@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include <cmath>
 
 using namespace sf;
 
@@ -9,6 +10,7 @@ public:
 	Line(float x1,float y1,float x2,float y2);
 	void update();
 	void draw(RenderWindow & window);
+	float length();
 public:
 	float x1,x2,y1,y2;
 	VertexArray lines;
@@ -35,9 +37,14 @@ void Line::update()
     lines[1].position = sf::Vector2f(x2, y2);
 }
 
+float Line::length()
+{
+	return sqrt(pow(x2-x1,2) + pow(y2 - y1,2));
+}
 
 void Line::draw(RenderWindow & window)
 {
 
 	window.draw(lines);
 }
+
