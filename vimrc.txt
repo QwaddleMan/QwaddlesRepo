@@ -1,0 +1,13 @@
+set number
+set tabstop=4
+set softtabstop=4
+set cursorline
+
+set foldenable
+set foldlevelstart=10
+set foldnestmax=10
+
+filetype indent on
+colo elflord
+syntax on
+
