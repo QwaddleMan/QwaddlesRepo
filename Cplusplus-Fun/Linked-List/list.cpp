@@ -15,6 +15,7 @@ class LinkedList{
     public:
             LinkedList();
             void addNode(int val);
+            void removeNode(int val);
             void show();
     private:
             node * head;
@@ -61,4 +62,24 @@ void LinkedList::show()
         current = current->right;
     }
 
+}
+
+//removes the first node with the value of val
+void LinkedList::removeNode(int val)
+{
+    current = head;
+    node * temp = NULL;
+    while(current != NULL)
+    {
+        if(current->value == val)
+        {
+            temp = current->left;
+            current = current->right;
+            delete current->left;
+            temp->right = current;
+            current->left = temp;
+            break;
+        }
+        current = current->right;
+    }
 }
