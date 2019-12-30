@@ -1,13 +1,12 @@
 set number
-set tabstop=4
-set softtabstop=4
-set cursorline
-
-set foldenable
-set foldlevelstart=10
-set foldnestmax=10
-
+set ts=4
+set sts=4
+set expandtab
 filetype indent on
-colo elflord
+set showcmd
 syntax on
+
+exec pathogen#infect()
+colo gruvbox
+set bg=dark
 
