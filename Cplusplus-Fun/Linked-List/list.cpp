@@ -16,6 +16,7 @@ class LinkedList{
             LinkedList();
             void addNode(int val);
             void removeNode(int val);
+            void removeAllValues(int val);
             void show();
     private:
             node * head;
@@ -79,6 +80,26 @@ void LinkedList::removeNode(int val)
             temp->right = current;
             current->left = temp;
             break;
+        }
+        current = current->right;
+    }
+}
+
+//removes all occurences of value
+void LinkedList::removeAllValues(int val)
+{
+    
+    current = head;
+    node * temp = NULL;
+    while(current != NULL)
+    {
+        if(current->value == val)
+        {
+            temp = current->left;
+            current = current->right;
+            delete current->left;
+            temp->right = current;
+            current->left = temp;
         }
         current = current->right;
     }

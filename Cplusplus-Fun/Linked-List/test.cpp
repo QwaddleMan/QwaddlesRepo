@@ -12,7 +12,7 @@ int main()
     LinkedList l;
     dialog();
     cin>>input;
-    while(input != 4)
+    while(input != 5)
     {
         if(input == 1)
         {
@@ -28,7 +28,15 @@ int main()
             l.removeNode(value);
         }
 
+        
         if(input == 3)
+        {
+            cout<<"Enter Value to Remove: ";
+            cin>>value;
+            l.removeAllValues(value);
+        }
+
+        if(input == 4)
         {
             l.show();
         }
@@ -43,7 +51,8 @@ void dialog()
 {
     cout<<"[1] - add node\n"
         <<"[2] - remove node\n"
-        <<"[3] - show\n"
-        <<"[4] - exit\n"
+        <<"[3] - remove all occurences of Value\n"
+        <<"[4] - show\n"
+        <<"[5] - exit\n"
         <<">> ";
 }
