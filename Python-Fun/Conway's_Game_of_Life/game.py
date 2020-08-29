@@ -17,7 +17,7 @@ black = 0, 0, 0
 
 screen = pygame.display.set_mode(size)
 interval = 10
-manager = DOAManager(interval,width, height, .03)
+manager = DOAManager(interval,width, height, .04)
 manager.define_grid()
 count = 0
 iterations = 3

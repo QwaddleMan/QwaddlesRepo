@@ -67,12 +67,13 @@ class DOAManager:
 
     def get_neighbors(self, x, y):
         ret = 0
-        for x1 in range(x-2, x+2):
+        for x1 in range(x-1, x+2):
             if(x1 >= 0 and x1 < len(self.rows[0]) and y-1 >=0 and y+1 < len(self.rows)):
                     if(self.rows[y-1][x1].get_alive() == True):
                         ret+=1
                     if(self.rows[y+1][x1].get_alive() == True):
                         ret+=1
+
         if(x-1 >= 0 and x+1 < len(self.rows[0])):
             if(self.rows[y][x-1].get_alive() == True):
                 ret+=1
