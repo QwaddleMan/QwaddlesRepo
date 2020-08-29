@@ -6,7 +6,7 @@
 import sys, pygame
 import math
 import random
-from GOL import DOAManager
+from GOL import DOAManager, GAME_TYPE
 
 
 pygame.init()
@@ -17,7 +17,7 @@ black = 0, 0, 0
 
 screen = pygame.display.set_mode(size)
 interval = 10
-manager = DOAManager(interval,width, height, .04)
+manager = DOAManager(interval,width, height, .04, GAME_TYPE.INPUT)
 manager.define_grid()
 count = 0
 iterations = 3
@@ -26,9 +26,10 @@ while 1:
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit() 
+    
+    if(manager.get_gtype() == GAME_TYPE.INPUT):
+        manager.manual_life()
     manager.play()
-#    pygame.time.wait(4000)
-
     screen.fill(black)
     manager.draw(screen)
     pygame.display.update()
