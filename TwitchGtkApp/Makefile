@@ -1,10 +1,11 @@
-bin/App: src/App.o
-	g++ -o bin/App src/App.o src/MainWindow.o `pkg-config gtkmm-3.0 --libs`
+CFLAGS=-g -Wall `pkg-config gtkmm-3.0 --cflags`
+LDFLAGS=`pkg-config gtkmm-3.0 --libs`
+
+bin/App: src/App.o src/MainWindow.o
+	g++ src/App.o src/MainWindow.o $(LDFLAGS) -o bin/App
 
 src/App.o: src/App.cpp
-	g++ -c src/App.cpp -o src/App.o
+	g++ -c src/App.cpp -o src/App.o $(CFLAGS) -o src/App.o
 
-src/MainWindow.o: src/MainWindow.h src/Mainwindow.cpp
-	g++ -c src/MainWindow.h src/MainWindow.cpp `pkg-config gtkmm-3.0 --cflags`
-
-
+src/MainWindow.o: src/MainWindow.cpp src/MainWindow.h
+	g++ -c src/MainWindow.cpp $(CFLAGS) -o src/MainWindow.o

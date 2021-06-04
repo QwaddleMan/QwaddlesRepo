@@ -1,10 +1,10 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <gtkmm-3.0.h>
+#include <gtkmm.h>
 
 
-class MainWindow : pubic Gtk::Window{
+class MainWindow : public Gtk::Window{
 
 public:
   MainWindow();
