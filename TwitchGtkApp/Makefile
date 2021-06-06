@@ -1,4 +1,4 @@
-CFLAGS=-g -Wall `pkg-config gtkmm-3.0 --cflags`
+CFLAGS=-Wall `pkg-config gtkmm-3.0 --cflags`
 LDFLAGS=`pkg-config gtkmm-3.0 --libs`
 
 bin/App: src/App.o src/MainWindow.o
